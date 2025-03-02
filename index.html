@@ -1,65 +1,157 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vhas Design Studio - Design Estratégico para Marcas. Portfólio de branding, identidade visual e design para redes sociais.">
-    <meta property="og:title" content="Vhas Design Studio | Strategic Brand Design">
-    <meta property="og:description" content="Design Estratégico para Marcas. Portfólio de branding, identidade visual e design para redes sociais.">
-    <meta property="og:image" content="https://your-real-hosted-logo-url.png">
-    <meta property="og:type" content="website">
-    <title>Vhas Design Studio | Strategic Brand Design</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" defer></script>
+    <title>Vhas Design Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: #002b5c;
+            color: white;
+            padding: 50px;
+            position: relative;
+        }
+        .logo {
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 40px;
+        }
+        .social-icons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .section {
+            width: 300px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .slideshow {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slideshow img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+        }
+        .about {
+            padding: 20px;
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+        footer {
+            background-color: #002b5c;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .logo {
+                max-width: 300px;
+                margin-bottom: 100px; /* Aumentei ainda mais a margem inferior */
+            }
+            header {
+                padding: 60px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="hero-content">
-            <img src="https://imgur.com/8wOJZZI.png" alt="Vhas Design" class="logo" style="width: 250px; height: auto;" loading="lazy">
-            <h1>Design Estratégico para Marcas</h1>
+    <header>
+        <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logo%20do%20site/8wOJZZI.png" alt="Logo" class="logo">
+        <h1>Design Estratégico para Marcas</h1>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="https://vdmtx.artstation.com/projects/XgyqE0"><i class="fab fa-artstation"></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="section">
+            <h3>Logos</h3>
+            <div class="slideshow" id="logos">
+                <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/c03e9f116053099.6751c7d373768.jpg" alt="Logos">
+                <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/portifolio%20corrida%20do%20fogo4%202023.jpg" alt="Logos">
+            </div>
+        </div>
+        <div class="section">
+            <h3>Branding</h3>
+            <div class="slideshow" id="branding">
+                <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/df9a98116141877.64ac177f4c615.jpg" alt="Branding">
+                <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/b2a2e0116141877.605be23ca9e85.jpg" alt="Branding">
+            </div>
+        </div>
+        <div class="section">
+            <h3>Social Media</h3>
+            <div class="slideshow" id="socialmedia">
+                <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/0b51e7119872267.6787a137b4577.jpg" alt="Social Media">
+                <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/f640c8119872267.662140a87bad5.jpg" alt="Social Media">
+            </div>
         </div>
     </div>
-
-    <section id="portfolio">
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <h3>Logos</h3>
-                <a href="https://www.behance.net/gallery/116053099/Logomarcas" target="_blank">
-                    <img src="https://imgur.com/EHqh2LD.png" alt="Logomarcas" class="portfolio-image" loading="lazy">
-                </a>
-            </div>
-            <div class="portfolio-item">
-                <h3>Branding</h3>
-                <a href="https://www.behance.net/gallery/116141877/Identidade-Visual" target="_blank">
-                    <img src="https://imgur.com/zIqmKKC.png" alt="Identidades Visuais" class="portfolio-image" loading="lazy">
-                </a>
-            </div>
-            <div class="portfolio-item">
-                <h3>Social Media</h3>
-                <a href="https://www.behance.net/gallery/119872267/Social-Media-Design" target="_blank">
-                    <img src="https://imgur.com/VMLDtEi.png" alt="Posts para Redes Sociais" class="portfolio-image" loading="lazy">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <h2 style="text-align: center;">Sobre Mim</h2>
-        <p style="font-size: 1.2rem;">Com anos de experiência em design estratégico, transformo ideias em identidades visuais fortes e impactantes. Minha missão é ajudar sua marca a se destacar com autenticidade e profissionalismo, transmitindo confiança e credibilidade ao seu público.</p>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2 style="text-align: center;">Contato</h2>
-        <div class="social-icons">
-            <a href="https://wa.me/5563993059754" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/vdmtx" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.behance.net/topsycrets" target="_blank" title="Behance"><i class="fab fa-behance"></i></a>
-            <a href="https://www.linkedin.com/in/victor-hugo-ara%C3%BAjo-e-silva-ag%C3%AAncia-digital-8329a11b0/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>© 2025 Vhas Design Studio. Todos os direitos reservados.</p>
+    <div class="about">
+        <h2>Sobre Mim</h2>
+        <p>Com anos de experiência em design estratégico, transformo ideias em identidades visuais fortes e impactantes.
+           Minha missão é ajudar sua marca a se destacar com autenticidade e profissionalismo, transmitindo confiança e credibilidade ao seu público.</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Vhas Design Studio. Todos os direitos reservados.</p>
     </footer>
+    <script>
+        function startSlideshow(sectionId) {
+            const slides = document.querySelectorAll(`#${sectionId} img`);
+            let index = 0;
+            slides[index].style.opacity = 1;
+            setInterval(() => {
+                slides[index].style.opacity = 0;
+                index = (index + 1) % slides.length;
+                slides[index].style.opacity = 1;
+            }, 3000);
+        }
+        startSlideshow("logos");
+        startSlideshow("branding");
+        startSlideshow("socialmedia");
+    </script>
 </body>
 </html>

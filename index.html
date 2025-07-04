@@ -1,167 +1,607 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vhas Design Studio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vdmtx - Designer Gráfico</title>
+  <meta name="description" content="Portfólio de Vdmtx: logos, branding, social media.">
+  <link rel="icon" href="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logo%20do%20site/8wOJZZ%20iconeI.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --azul-escuro: #002e5d;
+      --azul-medio: #004d99;
+      --azul-claro: #007bff;
+      --branco: #ffffff;
+      --cinza-claro: #f9f9f9;
+      --cinza-texto: #2c2c2c;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--cinza-claro);
+      color: var(--cinza-texto);
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 46, 93, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: var(--branco);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+    }
+    .logo-header {
+        height: 40px;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--azul-claro); }
+    .social-buttons a {
+      margin-left: 0.8rem;
+      display: inline-block;
+      color: var(--branco);
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-buttons a:hover {
+        color: var(--azul-claro);
+        transform: scale(1.1);
+    }
+    .hero {
+      height: 70vh; 
+      background: linear-gradient(to bottom, #002e5d, #004d99);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease-in-out;
+      text-align: center;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-logo {
+      height: 150px;
+      margin-bottom: 2rem;
+    }
+    .hero-text-container h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+    }
+    .hero-text-container p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+    }
+    .hero .cta-button {
+        background: var(--azul-claro);
+        color: white;
+        padding: 0.75rem 2rem;
+        border-radius: 4px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+    .hero .cta-button:hover {
+        background: #0056c2;
+    }
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+      padding-top: 100px;
+    }
+    section {
+      margin-bottom: 3rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+    section.visible { opacity: 1; }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid var(--azul-claro);
+      padding-left: 1rem;
+      color: var(--azul-escuro);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .card-body h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      color: var(--azul-escuro);
+    }
+    .card-body p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .service-icon {
+        font-size: 2.5rem;
+        color: var(--azul-claro);
+        margin-bottom: 1rem;
+    }
+    .sobre {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    #ebook {
+        background: var(--branco);
+        padding: 3rem 2rem;
+        border-radius: 8px;
+    }
+    .ebook-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    .ebook-image {
+        flex: 1;
+        max-width: 300px;
+    }
+    .ebook-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
+    .ebook-text {
+        flex: 2;
+    }
+    .ebook-text h3 {
+        font-size: 1.8rem;
+        color: var(--azul-escuro);
+        margin-bottom: 1rem;
+    }
+    .ebook-text p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+    }
+    .cta-button {
+        background: var(--azul-claro);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s;
+        display: inline-block;
+    }
+    .cta-button:hover {
+        background: #0056c2;
+    }
+    footer {
+        background: var(--azul-escuro);
+        color: var(--branco);
+        text-align: center;
+        padding: 2.5rem 1rem;
+        margin-top: 2rem;
+    }
+    footer h2 {
+        border-left: none;
+        padding-left: 0;
+        color: var(--branco);
+        font-size: 1.8rem;
+    }
+    footer a {
+        color: var(--azul-claro);
+        text-decoration: none;
+        font-weight: bold;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+    .footer-socials {
+        margin-top: 1.5rem;
+    }
+    .footer-socials a {
+        margin: 0 0.7rem;
+        font-size: 1.7rem;
+        color: var(--branco);
+        transition: color 0.3s, transform 0.3s;
+    }
+    .footer-socials a:hover {
+        color: var(--azul-claro);
+        transform: scale(1.1);
+    }
+    #modalGaleria{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,25,41,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:none;justify-content:center;align-items:center;z-index:9999;flex-direction:column;padding:1rem}#modalGaleria img{border:4px solid #fff;border-radius:8px;box-shadow:0 0 20px rgba(255,255,255,.2);background:#000;transition:width .2s ease,height .2s ease;width:auto;height:auto;max-width:100%;max-height:100%}.image-container{position:relative;display:flex;justify-content:center;align-items:center;max-width:90vw;max-height:80vh;overflow:auto;border-radius:8px}.image-container.pannable{cursor:grab}.image-container.pannable:active{cursor:grabbing}.image-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;pointer-events:none}.galeria-controles{margin-top:1rem;display:flex;gap:1rem;align-items:center;position:relative;z-index:10}.galeria-controles button{background:var(--azul-claro);color:#fff;border:none;padding:.7rem 1.2rem;border-radius:5px;font-weight:700;cursor:pointer;transition:background .3s;font-size:1.2rem}.galeria-controles button:hover{background:#0056c2}#closeModal{position:fixed;top:20px;right:30px;color:#fff;font-size:30px;font-weight:700;transition:.3s;cursor:pointer;z-index:10000;text-shadow:0 0 8px #000}#closeModal:hover{transform:scale(1.2);color:var(--azul-claro)}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media print{body>*:not(#modalGaleria){display:none!important}#modalGaleria,#modalGaleria *{visibility:hidden!important}}
+    @media (max-width: 950px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-content {
+            flex-direction: column;
+        }
+        .hero-text-container {
             text-align: center;
         }
-        header {
-            background-color: #002b5c;
-            color: white;
-            padding: 50px;
-            position: relative;
+        .ebook-container {
+            flex-direction: column;
+            text-align: center;
         }
-        .logo {
+        .ebook-image, .ebook-illustration {
             max-width: 250px;
-            height: auto;
-            margin-bottom: 40px;
         }
-        .social-icons {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .ebook-text {
+            padding-left: 0;
         }
-        .social-icons a {
-            color: white;
-            margin: 0 10px;
-            font-size: 20px;
-            text-decoration: none;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 20px;
-        }
-        .section {
-            width: 300px;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 10px;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-        .section h3 {
-            color: black;
-            margin-bottom: 10px;
-        }
-        .slideshow {
-            width: 100%;
-            height: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .slideshow img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 5px;
-            transition: opacity 1s ease-in-out;
-            position: absolute;
-        }
-        .about {
-            padding: 20px;
-            text-align: justify;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 18px;
-        }
-        footer {
-            background-color: #002b5c;
-            color: white;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .logo {
-                max-width: 300px;
-                margin-bottom: 100px; 
-            }
-            header {
-                padding: 60px;
-            }
-        }
-    </style>
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logo%20do%20site/8wOJZZI.png" alt="Logo" class="logo">
-        <h1>Design Estratégico para Marcas</h1>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-behance"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="https://vdmtx.artstation.com/projects/XgyqE0"><i class="fab fa-artstation"></i></a>
+
+  <div id="modalGaleria">
+    <span id="closeModal" onclick="fecharGaleria()">&times;</span>
+    <div class="image-container">
+      <img id="galeriaImg" src="" alt="Imagem da Galeria">
+      <div class="image-overlay"></div>
+    </div>
+    <div class="galeria-controles">
+      <button onclick="anterior()" title="Anterior">&#9664;</button>
+      <button onclick="zoomIn()">Zoom +</button>
+      <button onclick="zoomOut()">Zoom -</button>
+      <button onclick="prox()" title="Próximo">&#9654;</button>
+    </div>
+  </div>
+
+  <header>
+    <a href="#">
+      <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logo%20do%20site/8wOJZZI.png" alt="Logo Vdmtx" class="logo-header">
+    </a>
+    <nav>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="social-buttons">
+      <a href="https://www.instagram.com/vdmtx/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.behance.net/topsycrets" target="_blank" title="Behance"><i class="fab fa-behance"></i></a>
+      <a href="https://vdmtx.artstation.com/" target="_blank" title="ArtStation"><i class="fab fa-artstation"></i></a>
+      <a href="https://t.me/miraclemile1" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://wa.me/5563993059754" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-content">
+        <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logo%20do%20site/8wOJZZI.png" alt="Logo Vdmtx" class="hero-logo">
+        <div class="hero-text-container">
+            <h1>Transformando Ideias em Design</h1>
+            <p>Designer Gráfico especialista em Identidade Visual, Social Media e soluções em engenharia de prompts.</p>
+            <a href="#contato" class="cta-button">Entre em Contato</a>
         </div>
-    </header>
-    <div class="container">
-        <div class="section">
-            <h3>Logos</h3>
-            <a href="https://www.behance.net/gallery/116053099/coletanea-de-logomarcas-criadas-por-mim">
-                <div class="slideshow" id="logos">
-                    <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/c03e9f116053099.6751c7d373768.jpg" alt="Logos">
-                    <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/portifolio%20corrida%20do%20fogo4%202023.jpg" alt="Logos">
-                </div>
-            </a>
+    </div>
+  </div>
+
+  <main>
+    <section id="portfolio">
+      <h2>Portfólio</h2>
+      <div class="grid">
+        
+        <div class="card" onclick="abrirGaleria('logos')">
+          <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/portifoliocorridadofogo2024.jpg" alt="Projetos de Logos">
+          <div class="card-body">
+            <h3>Criação de Logos</h3>
+            <p>Projetos de identidade visual e logos para diversas marcas.</p>
+          </div>
         </div>
-        <div class="section">
+        
+        <div class="card" onclick="abrirGaleria('branding')">
+          <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/df9a98116141877.64ac177f4c615.jpg" alt="Projetos de Branding">
+          <div class="card-body">
             <h3>Branding</h3>
-            <a href="https://www.behance.net/gallery/116141877/Identidade-Visual">
-                <div class="slideshow" id="branding">
-                    <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/df9a98116141877.64ac177f4c615.jpg" alt="Branding">
-                    <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/b2a2e0116141877.605be23ca9e85.jpg" alt="Branding">
-                </div>
-            </a>
+            <p>Desenvolvimento e gestão de marcas, criando uma identidade única.</p>
+          </div>
         </div>
-        <div class="section">
+
+        <div class="card" onclick="abrirGaleria('social_media')">
+          <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/063963119872267.65e881b199ef4.jpg" alt="Projetos de Social Media">
+          <div class="card-body">
             <h3>Social Media</h3>
-            <a href="https://www.behance.net/gallery/119872267/coletanea-de-posts-para-redes-sociais">
-                <div class="slideshow" id="socialmedia">
-                    <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/0b51e7119872267.6787a137b4577.jpg" alt="Social Media">
-                    <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/f640c8119872267.662140a87bad5.jpg" alt="Social Media">
-                </div>
-            </a>
+            <p>Criação de conteúdo visual e posts para engajamento em redes sociais.</p>
+          </div>
         </div>
-    </div>
-    <div class="about">
+
+      </div>
+    </section>
+
+    <section id="servicos">
+      <h2>Serviços</h2>
+        <div class="grid">
+            <div class="card" style="cursor: default;">
+                <div class="card-body">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Identidade Visual</h3>
+                    <p>Criação de logos, paleta de cores e tipografia para a sua marca, garantindo uma presença forte e coesa.</p>
+                </div>
+            </div>
+            <div class="card" style="cursor: default;">
+                <div class="card-body">
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Branding</h3>
+                    <p>Desenvolvimento completo da estratégia e posicionamento da sua marca para se conectar com o seu público.</p>
+                </div>
+            </div>
+            <div class="card" style="cursor: default;">
+                <div class="card-body">
+                    <div class="service-icon"><i class="fas fa-share-nodes"></i></div>
+                    <h3>Social Media</h3>
+                    <p>Design de conteúdo visual atraente e profissional para impulsionar a sua presença nas redes sociais.</p>
+                </div>
+            </div>
+            <div class="card" style="cursor: default;">
+                <div class="card-body">
+                    <div class="service-icon"><i class="fas fa-terminal"></i></div>
+                    <h3>Engenharia de Prompts</h3>
+                    <p>Utilizo prompts de forma estratégica para direcionar inteligências artificiais na criação de imagens, textos e conceitos visuais com precisão e identidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre">
         <h2>Sobre Mim</h2>
-        <p>Com anos de experiência em design estratégico, transformo ideias em identidades visuais fortes e impactantes.
-           Minha missão é ajudar sua marca a se destacar com autenticidade e profissionalismo, transmitindo confiança e credibilidade ao seu público.</p>
+        <div class="sobre">
+            <p>Olá! Eu sou Victor, um designer gráfico apaixonado por criar soluções visuais que contam histórias e resolvem problemas. Com experiência em diversas áreas do design, meu objetivo é ajudar marcas a se destacarem no mercado.</p>
+        </div>
+    </section>
+
+    <section id="ebook">
+      <h2>Meu Ebook</h2>
+      <div class="ebook-container">
+          <div class="ebook-image">
+              <img src="https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/ChatGPT%20Image%204%20de%20jul.%20de%202025%2C%2012_40_16.png" alt="Ilustração de IA para o Ebook">
+          </div>
+          <div class="ebook-text">
+              <h3>Domine a Engenharia de Prompts para Inteligência Artificial</h3>
+              <p>Um guia completo para transformar suas ideias em resultados visuais incríveis. Aprenda as técnicas que uso para agilizar o processo criativo, fortalecer marcas e criar conteúdo de alto impacto com IA.</p>
+              <a href="https://pay.hotmart.com/C98760749O?checkoutMode=10&bid=1751642541426" target="_blank" rel="noopener noreferrer" class="cta-button">Comprar Agora</a>
+          </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <footer id="contato">
+    <h2>Vamos criar algo incrível juntos?</h2>
+    <p>Entre em contato para um orçamento ou para saber mais sobre o meu trabalho.</p>
+    <div class="footer-socials">
+        <a href="https://www.instagram.com/vdmtx/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.behance.net/topsycrets" target="_blank" title="Behance"><i class="fab fa-behance"></i></a>
+        <a href="https://vdmtx.artstation.com/" target="_blank" title="ArtStation"><i class="fab fa-artstation"></i></a>
+        <a href="https://t.me/miraclemile1" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://wa.me/5563993059754" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <footer>
-        <p>&copy; 2025 Vhas Design Studio. Todos os direitos reservados.</p>
-    </footer>
-    <script>
-        function startSlideshow(sectionId) {
-            const slides = document.querySelectorAll(`#${sectionId} img`);
-            let index = 0;
-            slides[index].style.opacity = 1;
-            setInterval(() => {
-                slides[index].style.opacity = 0;
-                index = (index + 1) % slides.length;
-                slides[index].style.opacity = 1;
-            }, 3000);
+    <p style="margin-top: 2rem; font-size: 0.9rem;">© 2025 Vdmtx Designer Gráfico. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // NOVO: Listas de imagens organizadas em JavaScript
+    const galeriasDeImagens = {
+      logos: [
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/portifoliocorridadofogo2024.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/ef13ef116053099.605a521b0acc6.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/c03e9f116053099.6751c7d373768.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/b7e80d116053099.65a946a551218.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/Imagem%20do%20WhatsApp%20de%202024-07-24%20%C3%A0(s)%2010.44.39_b3bbd4b5.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/logos/698e7e116053099.605a521b09d1b.jpg'
+      ],
+      branding: [
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/df9a98116141877.64ac177f4c615.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/39d1df116141877.64ac177f4d8e0.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/690dab116141877.64ac177f4e541.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/8a0cf3116141877.64ac177f4b829.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/1e9e30116141877.64ac177f48555.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/6a5b9e116141877.64ac175fedb18.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/2a309f116141877.64ac175feca6a.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/4799ce116141877.64ac175feb6c5.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/507d16116141877.64ac175ff03cf.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/960419116141877.64ac175ff34ff.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/a66add116141877.64ac175ff14a9.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/cdf732116141877.64ac175fef381.webp',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/branding/93147b116141877.64ac175ff230d.webp'
+      ],
+      social_media: [
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/063963119872267.65e881b199ef4.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/0b51e7119872267.6787a137b4577.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/0d367b116053099.660879b0d40cb.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/1e2e5f119872267.65e881b19927c.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/1e9ccf119872267.660c131e54aa7.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/209304119872267.658d8fc77062e.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/2c9616119872267.6555e954c3bb6.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/32a1a5119872267.664c945a39930.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/3d40f5119872267.66796058429a1.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/42d499119872267.633c2e74823fc.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/4d6a00119872267.66795e99c9e5c.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/52ca9c119872267.664c9dd457e57.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/573508119872267.61795f3c881b5.png',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/5bd997119872267.667b0a6bae2ef.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/7desetembro2.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/806e4f119872267.682f3fed37149.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/84cf77119872267.64073b76cdee2.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/94422a119872267.662140a87be83.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/a52264119872267.658d8fc76fc1c.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/a8c824119872267.60a664589b7af.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/adb687119872267.664c9e6a6203e.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/b6e8a1119872267.662140a87af00.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/dbef01119872267.64f72e4751754.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/ec79c8119872267.60a664589c3d1.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/ed5a19119872267.6307692c570b8.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/f0c611119872267.66795e99cad8c.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/f640c8119872267.662140a87bad5.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/ff6356119872267.630f81a20e6c6.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/painel280x180.jpg',
+        'https://raw.githubusercontent.com/Vdmtx/Vdmtx-Designer-Grafico/main/social_media/postbomfim.jpg'
+      ]
+    };
+
+    let imagens = [];
+    let indiceAtual = 0;
+    let zoomNivel = 1;
+    const imageContainer = document.querySelector('.image-container');
+    const galeriaImg = document.getElementById("galeriaImg");
+
+    function resetZoomState() {
+      zoomNivel = 1;
+      galeriaImg.style.transform = 'scale(1)';
+      galeriaImg.style.maxWidth = '100%';
+      galeriaImg.style.maxHeight = '100%';
+      galeriaImg.style.width = 'auto';
+      galeriaImg.style.height = 'auto';
+      imageContainer.classList.remove('pannable');
+      imageContainer.scrollTop = 0;
+      imageContainer.scrollLeft = 0;
+    }
+
+    function abrirGaleria(nomeDaGaleria) {
+      const listaDeImagens = galeriasDeImagens[nomeDaGaleria];
+      if (!listaDeImagens || listaDeImagens.length === 0) { return; }
+      imagens = listaDeImagens;
+      indiceAtual = 0;
+      document.getElementById("modalGaleria").style.display = "flex";
+      atualizarImagem();
+    }
+    
+    function atualizarImagem() {
+      resetZoomState();
+      galeriaImg.src = imagens[indiceAtual];
+    }
+
+    function fecharGaleria() {
+      document.getElementById("modalGaleria").style.display = "none";
+    }
+
+    function prox() {
+      indiceAtual = (indiceAtual + 1) % imagens.length;
+      atualizarImagem();
+    }
+
+    function anterior() {
+      indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
+      atualizarImagem();
+    }
+
+    function zoomIn() {
+      if (zoomNivel >= 3) return; 
+      zoomNivel += 0.25;
+      galeriaImg.style.transform = `scale(${zoomNivel})`;
+      imageContainer.classList.add('pannable');
+    }
+
+    function zoomOut() {
+      if (zoomNivel <= 1) return;
+      zoomNivel -= 0.25;
+      galeriaImg.style.transform = `scale(${zoomNivel})`;
+      if (zoomNivel <= 1) {
+        imageContainer.classList.remove('pannable');
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(section => observer.observe(section));
+
+      galeriaImg.addEventListener('dragstart', e => e.preventDefault());
+
+      let isDown = false;
+      let startX, startY, scrollLeft, scrollTop;
+
+      imageContainer.addEventListener('mousedown', (e) => {
+        if (!imageContainer.classList.contains('pannable')) return;
+
+        isDown = true;
+        imageContainer.classList.add('active');
+        startX = e.pageX - imageContainer.offsetLeft;
+        startY = e.pageY - imageContainer.offsetTop;
+        scrollLeft = imageContainer.scrollLeft;
+        scrollTop = imageContainer.scrollTop;
+      });
+
+      imageContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        imageContainer.classList.remove('active');
+      });
+
+      imageContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        imageContainer.classList.remove('active');
+      });
+
+      imageContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - imageContainer.offsetLeft;
+        const y = e.pageY - imageContainer.offsetTop;
+        const walkX = (x - startX) * 2;
+        const walkY = (y - startY) * 2;
+        imageContainer.scrollLeft = scrollLeft - walkX;
+        imageContainer.scrollTop = scrollTop - walkY;
+      });
+    });
+    
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            fecharGaleria();
         }
-        startSlideshow("logos");
-        startSlideshow("branding");
-        startSlideshow("socialmedia");
-    </script>
+    });
+  </script>
 </body>
 </html>
